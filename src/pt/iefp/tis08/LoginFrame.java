@@ -11,9 +11,8 @@ package pt.iefp.tis08;
  */
 public class LoginFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginFrame
-     */
+    LoginClass lc = new LoginClass();
+
     public LoginFrame() {
         initComponents();
     }
@@ -34,6 +33,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jBClean = new javax.swing.JButton();
         jBCancel = new javax.swing.JButton();
         jPassword = new javax.swing.JPasswordField();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,11 +61,29 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jBClean.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jBClean.setText("Limpar");
+        jBClean.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCleanActionPerformed(evt);
+            }
+        });
 
         jBCancel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jBCancel.setText("Cancelar");
+        jBCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelActionPerformed(evt);
+            }
+        });
 
         jPassword.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTextField1.setText("jTextField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,6 +92,7 @@ public class LoginFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -106,6 +125,8 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(jBLogin)
                     .addComponent(jBClean)
                     .addComponent(jBCancel))
+                .addGap(18, 18, 18)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -117,8 +138,20 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jBLoginActionPerformed
 
     private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
-        // TODO add your handling code here:
+        lc.setUser(jUser.getText());
     }//GEN-LAST:event_jUserActionPerformed
+
+    private void jBCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCleanActionPerformed
+
+    private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCancelActionPerformed
+    
+    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
+        lc.setPass(jPassword.getPassword());
+    }//GEN-LAST:event_jPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +195,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPassword;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jUser;
     // End of variables declaration//GEN-END:variables
 }
