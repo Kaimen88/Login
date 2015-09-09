@@ -164,11 +164,12 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jUserActionPerformed
 
     private void jBCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanActionPerformed
-        // TODO add your handling code here:
+        jPassword.setText("");
+        jUser.setText("");
     }//GEN-LAST:event_jBCleanActionPerformed
 
     private void jBCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelActionPerformed
-        // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_jBCancelActionPerformed
     
     private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
