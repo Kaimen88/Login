@@ -33,7 +33,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jBClean = new javax.swing.JButton();
         jBCancel = new javax.swing.JButton();
         jPassword = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        validacao = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +48,11 @@ public class LoginFrame extends javax.swing.JFrame {
         jUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jUserActionPerformed(evt);
+            }
+        });
+        jUser.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jUserKeyReleased(evt);
             }
         });
 
@@ -81,9 +86,20 @@ public class LoginFrame extends javax.swing.JFrame {
                 jPasswordActionPerformed(evt);
             }
         });
+        jPassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jPasswordKeyReleased(evt);
+            }
+        });
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jTextField1.setText("jTextField1");
+        validacao.setEditable(false);
+        validacao.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        validacao.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        validacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validacaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,7 +108,7 @@ public class LoginFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(validacao)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jBLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -126,7 +142,7 @@ public class LoginFrame extends javax.swing.JFrame {
                     .addComponent(jBClean)
                     .addComponent(jBCancel))
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(validacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -134,11 +150,17 @@ public class LoginFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLoginActionPerformed
-        // TODO add your handling code here:
+
+        if(lc.validar()){
+           validacao.setText("login aceite");
+       }
+       else{
+           validacao.setText("login errado");
+       } 
     }//GEN-LAST:event_jBLoginActionPerformed
 
     private void jUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUserActionPerformed
-        lc.setUser(jUser.getText());
+      
     }//GEN-LAST:event_jUserActionPerformed
 
     private void jBCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCleanActionPerformed
@@ -150,8 +172,20 @@ public class LoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jBCancelActionPerformed
     
     private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
-        lc.setPass(jPassword.getPassword());
+     
     }//GEN-LAST:event_jPasswordActionPerformed
+
+    private void validacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validacaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validacaoActionPerformed
+
+    private void jUserKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jUserKeyReleased
+         lc.setUser(jUser.getText());
+    }//GEN-LAST:event_jUserKeyReleased
+
+    private void jPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordKeyReleased
+        lc.setPass(String.valueOf(jPassword.getPassword()));
+    }//GEN-LAST:event_jPasswordKeyReleased
 
     /**
      * @param args the command line arguments
@@ -195,7 +229,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPassword;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jUser;
+    private javax.swing.JTextField validacao;
     // End of variables declaration//GEN-END:variables
 }
