@@ -35,7 +35,9 @@ public class LoginFrame extends javax.swing.JFrame {
         jPassword = new javax.swing.JPasswordField();
         validacao = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Iniciar Sessão");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Utilizador:");
