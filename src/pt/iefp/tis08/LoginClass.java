@@ -1,14 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pt.iefp.tis08;
 
 /**
  *
  * @author Eduardo
+ * @author Pedro
  */
 public class LoginClass {
+    private String user;
+    private String pass;
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
     
+    public boolean validar(){
+    return user.equals("admin")&& pass.equals("admin");
+    }
+    public static void main(String[] args) {
+        
+    }
 }
